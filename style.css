@@ -1,21 +1,37 @@
 /* You can add global styles to this file, and also import other style files */     
+:root {
+    --font-primary: 'helvetica neue', sans-serif;
+    --color-background-body: #fff;
+    --color-background-tabs: darkgreen;
+    --color-text-tabs: white;
+    --color-map-placeholder-bg: #4a98f7;
+    --color-map-location-bg: rgba(255, 255, 255, 0.8);
+    --color-map-location-bg-hover: rgba(255, 255, 255, 1);
+    --color-map-location-text: #333;
+    --color-location-info-bg: rgba(255, 255, 255, 0.95);
+    --color-info-box-bg: rgba(255, 225, 55, 0.8);
+    --color-info-box-h3: #572800;
+    --color-info-box-p: #131313;
+    
+    --image-header-bg: url('images/wood-bg.png');
+    --image-map-bg: url('images/map-blur.png');
+}
+
 body{
     padding: 0;
     margin: 0;
-    font-family: 'helvetica neue', sans-serif;
-    background-color: #fff;
+    font-family: var(--font-primary);
+    background-color: var(--color-background-body);
 }   
 
 #header{
-    
-    /*background-color: #333;*/
     position: fixed;
     top: 0;
     left: 0;
     z-index: 500;
     width: 100%;
     height: 80px; 
-    background-image : url('images/wood-bg.png');
+    background-image : var(--image-header-bg);
     background-repeat: repeat-x;
 }
 
@@ -33,25 +49,78 @@ body{
     z-index: 500;
     width: 100%;
     height: 40px;
-    background-color: darkgreen;
-    text-align: center;
+    background-color: var(--color-background-tabs);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #tabs-top a{
-    float: left;
-    display: block;
-    width: 33%;
-    height: 35px;
+    flex-grow: 1;
+    height: 100%;
     font-weight: 700;
-    color: white;
+    color: var(--color-text-tabs);
     text-align: center;
     text-decoration: none;
-    padding-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 /* we are to style the main-home div*/
 #main-home{
-    margin-top: 120px;
+    margin-top: 120px; /* Height of header + top-tabs */
+    padding: 20px; /* Add some padding */
+    background-image: var(--image-map-bg); /* Use the blurred map as background */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: calc(100vh - 120px - 40px); /* Full viewport height minus header/tabs and bottom tabs */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white; /* Assuming white text will be readable over the blurred map */
+}
 
+#main-home .welcome-content {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background for readability */
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+}
+
+#main-home h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #fff; /* Explicitly white, can adjust if needed */
+}
+
+#main-home p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+#main-home .cta-buttons a.cta-button {
+    background-color: var(--color-background-tabs);
+    color: var(--color-text-tabs);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 0 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Allow margins and padding */
+}
+
+#main-home .cta-buttons a.cta-button:hover {
+    background-color: #004d00; /* Darker green */
+    transform: translateY(-2px);
+}
+
+#main-home .cta-buttons a.cta-button:active {
+    transform: translateY(1px);
 }
 
 /* we are to style the tabs-bottom div*/
@@ -62,30 +131,32 @@ body{
     z-index: 500;
     width: 100%;
     height: 40px;
-    background-color: darkgreen;
-    text-align: center;
+    background-color: var(--color-background-tabs);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #tabs-bottom a{
-    float: left;
-    display: block;
-    width: 50%;
-    height: 35px;
+    flex-grow: 1;
+    height: 100%;
     font-weight: 700;
-    color: white;
+    color: var(--color-text-tabs);
     text-align: center; 
-    padding-top: none;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* we are to style the map div*/
 #map {
-    width: 100vw;
+    width: 100%;
     height: 80vh;
     min-height: 400px;
-    background-color: #4a98f7;
+    background-color: var(--color-map-placeholder-bg);
     position: relative;
-    background-image: url('images/map-blur.png');
+    background-image: var(--image-map-bg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -102,23 +173,34 @@ body{
 
 .map-location {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: rgba(255, 255, 255, 0.8);
+    width: 35px; /* Increased size */
+    height: 35px; /* Increased size */
+    background-color: var(--color-background-tabs); /* Use a theme color */
+    /* color: var(--color-text-tabs); Removed as letters are gone */
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    color: #333;
+    /* font-weight: bold; Not needed for icons */
+    font-size: 1.1em; /* This will control icon size */
+    border: 2px solid white; /* Add a border to help stand out */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-.map-location:hover {
+.map-location .fa { /* Style the icon itself */
+    color: var(--color-text-tabs); /* White icon color */
+    line-height: 1; /* Ensure icon is centered vertically if it has inherent line-height */
+}
+
+.map-location:hover,
+.map-location:focus {
     transform: scale(1.2);
-    background-color: rgba(255, 255, 255, 1);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: #004d00; /* Darker green on hover/focus */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    outline: 2px solid var(--color-info-box-h3); /* Clearer focus outline */
+    outline-offset: 2px;
 }
 
 /* Location positions */
@@ -127,36 +209,35 @@ body{
 .monkey-trail { top: 45%; left: 75%; }
 .wild-things { top: 50%; left: 50%; }
 .lost-forest { top: 60%; left: 85%; }
-.mos-pizza { top: 55%; left: 45%; }
+.mos-pizza { top: 53%; left: 42%; }
 .dine-zoo { top: 25%; left: 25%; }
-.ice-cream { top: 55%; left: 45%; }
-.panda-canyon { top: 55%; left: 45%; }
-.gemsbok { top: 55%; left: 45%; }
-.elephant { top: 55%; left: 45%; }
-.giraffe { top: 55%; left: 45%; }
-.warthog { top: 55%; left: 45%; }
-.rhino-beetle { top: 55%; left: 45%; }
-.koala { top: 55%; left: 45%; }
-.lion { top: 55%; left: 45%; }
-.gorilla { top: 55%; left: 45%; }
-.penguin { top: 55%; left: 45%; }
-.tiger { top: 55%; left: 45%; }
-.snake { top: 55%; left: 45%; }
-.tortoise { top: 55%; left: 45%; }
-.tortoise { top: 55%; left: 45%; }
-.tortoise { top: 55%; left: 45%; }
+.ice-cream { top: 57%; left: 48%; }
+.panda-canyon { top: 50%; left: 30%; }
+.gemsbok { top: 52%; left: 33%; }
+.elephant { top: 54%; left: 36%; }
+.giraffe { top: 56%; left: 39%; }
+.warthog { top: 58%; left: 42%; }
+.rhino-beetle { top: 60%; left: 45%; }
+.koala { top: 62%; left: 48%; }
+.lion { top: 60%; left: 30%; }
+.gorilla { top: 58%; left: 33%; }
+.penguin { top: 56%; left: 36%; }
+.tiger { top: 54%; left: 39%; }
+.snake { top: 52%; left: 42%; }
+.tortoise { top: 50%; left: 45%; }
 
 
 
 .location-info {
     position: absolute;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: white; /* Solid white background for better readability */
+    padding: 20px;
+    border-radius: 8px; /* Softer corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
     display: none;
     z-index: 1000;
-    max-width: 300px;
+    max-width: 320px; /* Slightly wider */
+    border-top: 4px solid var(--color-background-tabs); /* Theme accent */
 }
 
 
@@ -164,48 +245,432 @@ body{
     display: block;
 }
 
+.location-info h3 {
+    font-size: 1.4em; /* Larger title */
+    color: var(--color-info-box-h3);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.location-info p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: var(--color-map-location-text);
+    margin-bottom: 10px;
+}
+
+.location-info p:last-of-type {
+    margin-bottom: 0;
+}
+
+.location-info .close-info-box {
+    position: absolute;
+    top: 10px; /* Adjusted position */
+    right: 10px; /* Adjusted position */
+    background: transparent;
+    border: none;
+    font-size: 1.8em; /* Larger close icon */
+    font-weight: bold;
+    color: #888; /* Softer color, but still visible */
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.location-info .close-info-box:hover,
+.location-info .close-info-box:focus {
+    color: #333; /* Darker on hover/focus */
+    outline: none;
+}
+
 #main {
     margin-top: 119px;
     background: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 50px; /* Ensure space above bottom tabs */
+}
+
+#main h1 {
+    color: var(--color-info-box-h3);
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#main .page-intro {
+    color: var(--color-info-box-p);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 25px auto;
+    font-size: 1.1em;
+    line-height: 1.6;
 }
 
 #content {
     padding-top: 1px;
     padding-bottom: 50px;
     background: none;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .info-box{
     text-decoration: none;
-    background: rgba(255 ,225, 55, .8); 
+    background: var(--color-info-box-bg); 
     width: 90%;
-    height: 90px;
-    display: block;
-    margin: auto;
-    margin-top: 12px;
-    padding: 1px;
+    min-height: 90px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px auto;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 6px; /* Added border-radius */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+    transition: box-shadow 0.3s ease, transform 0.2s ease; /* Smooth transition */
 }
-.info-box img{
-    float: left;
-    height: 100%;
-    margin: 10px;
+
+.info-box:hover, 
+.info-box:focus {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Enhanced shadow on hover/focus */
+    transform: translateY(-3px); /* Slight lift effect */
+    outline: none; /* Remove default outline if we use box-shadow for focus state */
 }
+
+/* If using box-shadow for focus, ensure a visible focus state for accessibility */
+.info-box:focus-visible {
+    box-shadow: 0 0 0 2px var(--color-background-tabs), 0 5px 15px rgba(0,0,0,0.15); /* Add an outer ring for focus */
+}
+
+.info-box img.info-thumb {
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.info-box-text {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
 .info-box h3{
     padding: 0;
-    margin-bottom: 0;
-    width: 90%;
-    color: #572800;
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: var(--color-info-box-h3);
+    font-size: 1.1em;
 }
+
 .info-box p{
     padding: 0;
     margin: 0;
-    width: 90%;
-    color: #131313;
+    color: var(--color-info-box-p);
+    font-size: 0.9em;
+    line-height: 1.4;
 }
-.info-box .right{
-    float: right;
-    margin-top: 25px;
-    height: 40px;
-    
+
+.info-box img.right{
+    height: 30px;
+    width: auto;
+    margin-left: 10px;
+}
+
+/* Visually hide an element while keeping it accessible to screen readers */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Feedback Page Styles */
+#feedback {
+    padding: 20px; /* Add padding around the feedback content */
+    margin-bottom: 60px; /* Ensure space above bottom tabs */
+}
+
+#feedback-form div {
+    margin-bottom: 15px; /* Space between form fields */
+}
+
+#feedback-form label {
+    display: block; /* Make label take full width */
+    margin-bottom: 5px;
+    color: var(--color-info-box-h3); /* Use a color from the theme */
+    font-weight: bold;
+}
+
+#feedback-form input[type="text"],
+#feedback-form input[type="email"],
+#feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    font-family: var(--font-primary);
+    font-size: 1em;
+}
+
+#feedback-form input[type="text"]:focus,
+#feedback-form input[type="email"]:focus,
+#feedback-form textarea:focus {
+    border-color: var(--color-background-tabs); /* Highlight with theme color */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 128, 0, 0.3); /* Subtle glow with theme color */
+}
+
+#feedback-form button[type="submit"] {
+    background-color: var(--color-background-tabs); /* Use theme color */
+    color: var(--color-text-tabs);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#feedback-form button[type="submit"]:hover {
+    background-color: darkgreen; /* Slightly darker shade for hover */
+    /* Consider a slightly darker shade of var(--color-background-tabs) if it's not already darkgreen */
+}
+
+#feedback-form button[type="submit"]:focus {
+    outline: 2px solid var(--color-info-box-h3);
+    outline-offset: 2px;
+}
+
+/* Background for Feedback Page */
+body.feedback-page-background {
+    background-image: url('images/map.png');
+    background-size: cover; /* Cover the entire page */
+    background-position: center center; /* Center the image */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keep background fixed during scroll */
+}
+
+/* Ensure form on feedback page has a contrasting background for readability */
+body.feedback-page-background #feedback-form {
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white background for the form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjust heading and paragraph on feedback page if needed for contrast */
+body.feedback-page-background #feedback h1,
+body.feedback-page-background #feedback p {
+    /* If text color needs to change for contrast against the new form background, add it here */
+    /* For example: color: #333; */
+    /* However, the form itself now has a light background, so existing text colors might be fine. */
+}
+
+/* Weather Page Specific Styles */
+#content {
+    /* This already has padding from a general rule, we might not need to change #content directly for the grid */
+}
+
+.weather-info-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between cards */
+    padding-top: 20px; /* Space above the cards */
+}
+
+.weather-info {
+    background-color: #f9f9f9; /* Light background for cards */
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center; /* Center content within cards */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.weather-info img {
+    max-width: 100px; /* Control image size */
+    max-height: 100px; /* Control image size */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 15px; /* Space below image */
+}
+
+.weather-info h3 {
+    color: var(--color-info-box-h3); /* Use theme color for heading */
+    margin-top: 0;
+    font-size: 1.3em;
+}
+
+.weather-info p {
+    color: var(--color-info-box-p); /* Use theme color for paragraph */
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+/* Optional: Style for the introductory text if needed */
+#info-box-full {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e9f5e9; /* A very light green, distinct from cards */
+    border-left: 4px solid var(--color-background-tabs);
+    border-radius: 4px;
+}
+
+#info-box-full p {
+    margin: 0;
+    color: #333;
+}
+
+/* Visitor Information Page Styles */
+#visitor-info h1, /* This is covered by #main h1 now, but good for specificity if needed */
+#content h1 {
+    color: var(--color-info-box-h3);
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#content .page-intro {
+    color: var(--color-info-box-p);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 25px auto;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+#content section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fdfdfd; /* Very light grey for sections */
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+#content section:last-of-type {
+    margin-bottom: 0;
+}
+
+#content section h2 {
+    color: var(--color-info-box-h3);
+    border-bottom: 2px solid var(--color-background-tabs);
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+}
+
+#content section h2 .fa {
+    margin-right: 10px;
+    color: var(--color-background-tabs);
+}
+
+#content section p, 
+#content section li {
+    color: var(--color-info-box-p);
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+#content section ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+}
+
+#content section ul li {
+    padding-left: 25px;
+    position: relative;
+}
+
+#content section ul li::before {
+    content: "\f00c"; /* FontAwesome check icon */
+    font-family: FontAwesome;
+    position: absolute;
+    left: 0;
+    color: var(--color-background-tabs);
+    font-size: 0.9em;
+}
+
+/* FAQ Specific Styles */
+#faq .faq-item {
+    margin-bottom: 20px;
+    border-left: 3px solid var(--color-background-tabs);
+    padding-left: 15px;
+    background-color: transparent; /* Override section background for faq-item if needed */
+    box-shadow: none; /* Override section shadow for faq-item */
+}
+
+#faq .faq-item:last-child {
+    margin-bottom: 0;
+}
+
+#faq .faq-item h3 {
+    font-size: 1.2em;
+    color: var(--color-info-box-h3);
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+#faq .faq-item p {
+    margin-bottom: 0;
+    font-size: 0.95em;
+}
+
+/* Events Page Styles */
+#content .event-item {
+    background-color: #fff; /* White background for each event item */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border-left: 4px solid var(--color-background-tabs); /* Theme color accent */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.07);
+}
+
+#content .event-item:last-child {
+    margin-bottom: 0;
+}
+
+#content .event-item h3 {
+    font-size: 1.3em;
+    color: var(--color-info-box-h3);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+#content .event-item h3 .fa {
+    margin-right: 8px;
+    color: var(--color-background-tabs);
+}
+
+#content .event-item p {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+#content .event-item p:last-child {
+    margin-bottom: 0;
+}
+
+#content .event-item strong {
+    color: var(--color-info-box-h3);
+}
+
+#content .upcoming-event {
+    border-left-color: #ff8c00; /* A different accent color for upcoming/special events */
+}
+
+#content .upcoming-event h3 .fa {
+    color: #ff8c00;
 }
 

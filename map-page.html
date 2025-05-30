@@ -1,5 +1,4 @@
-
-</html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,38 +6,47 @@
     <link rel="stylesheet" href="style.css">    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
 
-    <title>Pine City Zoo</title>
+    <title>Pine City Zoo - Map</title>
 </head>
 <body>
-    <h1>Pine City Zoo</h1>
-    <div id="map">
-        <div class="map-container">
-            <div class="map-location amphitheatre" data-location="amphitheatre">A</div>
-            <div class="map-location insect-house" data-location="insect-house">I</div>
-            <div class="map-location monkey-trail" data-location="monkey-trail">M</div>
-            <div class="map-location wild-things" data-location="wild-things">W</div>
-            <div class="map-location lost-forest" data-location="lost-forest">L</div>
-            <div class="map-location mos-pizza" data-location="mos-pizza">P</div>
-            <div class="map-location dine-zoo" data-location="dine-zoo">D</div>
-        </div>
-    </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=&v=weekly" async defer></script>    
-    <script src="map.js"></script>           
-    <div id="header">
-        <a href="index.html"> <img src="images/logo.png"/></a>
-        </div>
-        <div id="tabs-top">
+    <header id="header">
+        <a href="index.html"> <img src="images/logo.png" alt="Pine City Zoo logo"/></a>
+    </header>
+    <nav id="tabs-top">
         <a href="animals-page.html">ANIMALS</a>
         <a href="map-page.html">MAP</a>
         <a href="places-page.html">PLACES</a>
+    </nav>
+    <main id="main-map-content">
+        <div id="map">
+            <div class="map-container">
+                <div class="map-location amphitheatre" data-location="amphitheatre"><i class="fa fa-star"></i></div>
+                <div class="map-location insect-house" data-location="insect-house"><i class="fa fa-bug"></i></div>
+                <div class="map-location monkey-trail" data-location="monkey-trail"><i class="fa fa-tree"></i></div>
+                <div class="map-location wild-things" data-location="wild-things"><i class="fa fa-coffee"></i></div>
+                <div class="map-location lost-forest" data-location="lost-forest"><i class="fa fa-tree"></i></div>
+                <div class="map-location mos-pizza" data-location="mos-pizza"><i class="fa fa-cutlery"></i></div>
+                <div class="map-location dine-zoo" data-location="dine-zoo"><i class="fa fa-cutlery"></i></div>
+                <div class="map-location ice-cream" data-location="ice-cream"><i class="fa fa-spoon"></i></div>
+                <div class="map-location panda-canyon" data-location="panda-canyon"><i class="fa fa-paw"></i></div>
+                <div class="map-location gemsbok" data-location="gemsbok"><i class="fa fa-paw"></i></div>
+                <div class="map-location elephant" data-location="elephant"><i class="fa fa-paw"></i></div>
+                <div class="map-location giraffe" data-location="giraffe"><i class="fa fa-paw"></i></div>
+                <div class="map-location warthog" data-location="warthog"><i class="fa fa-paw"></i></div>
+                <div class="map-location rhino-beetle" data-location="rhino-beetle"><i class="fa fa-bug"></i></div>
+                <div class="map-location koala" data-location="koala"><i class="fa fa-paw"></i></div>
+                <div class="map-location lion" data-location="lion"><i class="fa fa-paw"></i></div>
+                <div class="map-location gorilla" data-location="gorilla"><i class="fa fa-paw"></i></div>
+                <div class="map-location tiger" data-location="tiger"><i class="fa fa-paw"></i></div>
+            </div>
         </div>
-        <div id="main-home">
-        <img src="images/map.png" width="100">
-        </div>
-        <div id="tabs-bottom">
+    </main>
+    <nav id="tabs-bottom">
         <a href="weather-page.html">WEATHER</a>
         <a href="feedback-page.html">FEEDBACK</a>
-        </div>
-
+        <a href="visitor-info.html">VISITOR INFO</a>
+        <a href="events-page.html">EVENTS</a>
+    </nav>
+    <script src="map.js"></script>
 </body>
 </html>

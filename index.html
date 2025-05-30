@@ -6,30 +6,34 @@
     <link rel="stylesheet" href="style.css">    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
 
-    <title>Pine City Zoo</title>
+    <title>Pine City Zoo - Welcome</title>
 </head>
 <body>
-    <h1>Pine City Zoo</h1>
-    <div id="map">
-       
-    </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=&v=weekly" async defer></script>    
-    <script src="map.js"></script>           
-    <div id="header">
-        <img src="images/logo.png"/>
-        </div>
-        <div id="tabs-top">
+    <header id="header">
+        <a href="index.html"><img src="images/logo.png" alt="Pine City Zoo logo"/></a>
+        <h1>Pine City Zoo</h1>
+    </header>
+    <nav id="tabs-top">
         <a href="animals-page.html">ANIMALS</a>
         <a href="map-page.html">MAP</a>
         <a href="places-page.html">PLACES</a>
+    </nav>
+    <main id="main-home">
+        <div class="welcome-content">
+            <h2>Welcome to Pine City Zoo!</h2>
+            <p>Your adventure starts here. Explore the wonders of wildlife and enjoy a day of fun and discovery.</p>
+            <div class="cta-buttons">
+                <a href="map-page.html" class="cta-button">Explore The Map</a>
+                <a href="animals-page.html" class="cta-button">Meet Our Animals</a>
+            </div>
         </div>
-        <div id="main-home">
-        <img src="images/map-blur.png" width="100">
-        </div>
-        <div id="tabs-bottom">
+    </main>
+    <nav id="tabs-bottom">
         <a href="weather-page.html">WEATHER</a>
         <a href="feedback-page.html">FEEDBACK</a>
-        </div>
-
+        <a href="visitor-info.html">VISITOR INFO</a>
+        <a href="events-page.html">EVENTS</a>
+    </nav>
+    <script src="map.js"></script>           
 </body>
 </html>

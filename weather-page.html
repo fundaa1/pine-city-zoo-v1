@@ -4,49 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Weather</title>
+    <title>Weather - Pine City Zoo</title>
 </head>
 <body>
-    <div id="header">
-        <a href="index.html"> <img src="images/logo.png"/></a>
-    </div>
-    <div id="tabs-top">
+    <header id="header">
+        <a href="index.html"> <img src="images/logo.png" alt="Pine City Zoo logo"/></a>
+    </header>
+    <nav id="tabs-top">
         <a href="animals-page.html">ANIMALS</a>
         <a href="map-page.html">MAP</a>
         <a href="places-page.html">PLACES</a>
-    </div>
-    <div id="main">
+    </nav>
+    <main id="main">
         <div id="content">
+            <h1>Weather Information</h1>
             <div id="info-box-full">
-                <h3>WEATHER</h3>
-                <p>The weather in Pine City is sunny and warm. The temperature is around 20 degrees Celsius. The weather is perfect for a day at the zoo.</p>
+                <p>The weather in Pine City is typically pleasant. Here are some of the conditions you might experience.</p>
             </div>
-            <div id="weather-info">
-                <h3>Sunny</h3>
-                <img src="images/sunny.png"/>
-                <p>The weather in Pine City is sunny and warm. The temperature is around 20 degrees Celsius. The weather is perfect for a day at the zoo.</p>
+            <div class="weather-info-container">
+                <div class="weather-info">
+                    <h3>Sunny</h3>
+                    <img src="images/sunny.png" alt="Sunny weather icon"/>
+                    <p>When it's sunny and warm, with temperatures around 20°C, it's a perfect day for the zoo.</p>
+                </div>
+                <div class="weather-info">
+                    <h3>Cloudy</h3>
+                    <img src="images/partly-cloudy.png" alt="Partly cloudy weather icon"/>
+                    <p>Cloudy and cool days, around 15°C, are still great for visiting.</p>
+                </div>
+                <div class="weather-info">
+                    <h3>Rainy</h3>
+                    <img src="images/rainy.png" alt="Rainy weather icon"/>
+                    <p>If it's rainy and cool (around 10°C), some animals might be indoors, but the zoo is still an adventure.</p>
+                </div>
+                <div class="weather-info">
+                    <h3>Clear Sky</h3>
+                    <img src="images/sky.jpg" alt="Clear sky icon"/>
+                    <p>Clear and cool conditions, around 5°C, can be invigorating for a zoo visit.</p>
+                </div>
             </div>
-            <div id="weather-info">
-                <h3>Cloudy</h3>
-                <img src="images/partly-cloudy.png"/>
-                <p>The weather in Pine City is cloudy and cool. The temperature is around 15 degrees Celsius. The weather is perfect for a day at the zoo.</p>
-            </div>
-            <div id="weather-info">
-                <h3>Rainy</h3>
-                <img src="images/rainy.png"/>
-                <p>The weather in Pine City is rainy and cool. The temperature is around 10 degrees Celsius. The weather is perfect for a day at the zoo.</p>
-            </div>
-            <div id="weather-info">
-                <h3>Clear clear Sky</h3>
-                <img src="images/sky.jpg"/>
-                <p>The weather in Pine City is clear and cool. The temperature is around 5 degrees Celsius. The weather is perfect for a day at the zoo.</p>
-            </div>
-            
         </div>
-    </div>
-    <div id="tabs-bottom">
+    </main>
+    <nav id="tabs-bottom">
         <a href="weather-page.html">WEATHER</a>
         <a href="feedback-page.html">FEEDBACK</a>
-        </div>
+        <a href="visitor-info.html">VISITOR INFO</a>
+        <a href="events-page.html">EVENTS</a>
+    </nav>
 </body>
 </html>
